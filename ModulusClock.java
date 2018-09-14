@@ -8,6 +8,8 @@ public class ModulusClock
 
 		int currentminute, currenthour, minuteslater, hourslater, futurehour, futureminute, totalminutes, totalhours;
 		futurehour = 0;
+		totalhours = 0;
+		totalminutes = 0;
 
 		System.out.println("Hour of current time? ");
 		currenthour = userinput.nextInt();
@@ -19,17 +21,21 @@ public class ModulusClock
 		System.out.println("How many minutes later? ");
 		minuteslater = userinput.nextInt();
 
-		if (futurehour == 0){
-		  futurehour = 12;
-		}
-
-		totalminutes = (currentminute + minuteslater);
-		futureminute = (totalminutes % 60);
+		futureminute = (totalminutes + minuteslater);
+		totalminutes = (currentminute % 60);
 		totalhours = (totalminutes / 60);
 		futurehour = (currenthour + (hourslater + totalhours));
+
+		if (futurehour > 12){
+			futurehour = (futurehour % 12);
+		}
+
+		if (futurehour == 0){
+			futurehour = 12;
+		}
+
 		System.out.print("The new time is : " + futurehour + ":");
 		System.out.printf("%02d", futureminute);
-
 
 
 	}
