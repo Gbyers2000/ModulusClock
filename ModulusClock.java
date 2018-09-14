@@ -25,10 +25,7 @@ public class ModulusClock
 		totalminutes = (currentminute % 60);
 		totalhours = (totalminutes / 60);
 		futurehour = (currenthour + (hourslater + totalhours));
-
-		if (futurehour > 12){
-			futurehour = (futurehour % 12);
-		}
+		futurehour = (futurehour % 12);
 
 		if (futurehour == 0){
 			futurehour = 12;
